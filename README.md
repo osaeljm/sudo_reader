@@ -1,2 +1,2 @@
 # sudo_reader
-Parses and generet
+Parses and generate a report of sudoers file
