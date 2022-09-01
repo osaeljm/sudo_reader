@@ -1,6 +1,5 @@
-import typer
-import os
-import re
+__version__ = '0.1'
+import typer, os, re
 
 app = typer.Typer()
 
