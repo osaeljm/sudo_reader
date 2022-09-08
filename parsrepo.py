@@ -1,7 +1,8 @@
-__version__ = '0.1'
-import typer, os, re
+__version__ = '0.1.1'
+import typer, os, re, csv_module
 
 app = typer.Typer()
+
 
 def list_of_files():
     #function that retrives list of file under specific path in list format
@@ -14,7 +15,7 @@ def list_of_files():
     return listFiles
 
 
-def Find_Alias(alias):
+def Finder(alias):
     #funtions that retrieves aliases on list format
     aliases = []
     if alias == 'User_Alias':
@@ -24,16 +25,13 @@ def Find_Alias(alias):
     else:
         pattern = re.compile(r'(?<=Cmnd_Alias).*$')
     
-
     with open('test_sudo_file','r') as file:
         content = file.readlines()
     
         for line in content:
-        
             matches = pattern.finditer(line)
             for m in matches:
-                
-                aliases.append(m.group())
+                aliases.append(m.group().split('='))
     return aliases
 
 @app.command()
@@ -47,10 +45,12 @@ def listFiles():
 
 @app.command()
 def find_alias(alias: str):
-    #function that shows the out put for command/user/hoist alias.
-    archivo = Find_Alias(alias)
+    #function that shows the out put for command/user/host alias and export the output to an excel file.
+    archivo = Finder(alias)
+    csv_module.exporter_to_excel(alias, archivo)
+    print(f"Result of {alias} is: \t")
     for arch in archivo:
         print(arch)
-
+    print("Output exported to Excel file")
 if __name__ == "__main__":
     app()

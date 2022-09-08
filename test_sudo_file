@@ -1,14 +1,14 @@
 User_Alias oracle_user = osa1, osa2
 Host_Alias oracle_servers = server1, server2
-Cmnd_Alias oracle_cmds = /bin/share/oracle
+Cmnd_Alias oracle_cmds = /bin/share/oracle1, /bin/share/oracle2
 
 User_Alias mysql_users = osa3, osa4
 Host_Alias mysql_servers = server3, server4
-Cmnd_Alias mysql_cmds = /bin/share/mysql
+Cmnd_Alias mysql_cmds = /bin/share/mysql1, /bin/share/mysql2
 
 User_Alias db2_users = osa5, osa6
 Host_Alias db2_servers = server5, server6
-Cmnd_Alias db2_cmds = /bin/share/db2
+Cmnd_Alias db2_cmds = /bin/share/db21, /bin/share/db22
 
 oracle_user oracle_servers = oracle_cmds
 mysql_users mysql_servers = mysql_cmds
