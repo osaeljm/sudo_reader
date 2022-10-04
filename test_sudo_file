@@ -4,7 +4,7 @@ Cmnd_Alias oracle_cmds = /bin/share/oracle1, /bin/share/oracle2
 
 User_Alias mysql_users = osa3, osa4
 Host_Alias mysql_servers = server3, server4
-Cmnd_Alias mysql_cmds = /bin/share/mysql1, /bin/share/mysql2
+Cmnd_Alias mysql_cmds = /bin/share/mysql1, /bin/share/mysql2, /bin/share/mysql3
 
 User_Alias db2_users = osa5, osa6
 Host_Alias db2_servers = server5, server6
