@@ -1,5 +1,4 @@
-__version__ = '0.1.1'
-import typer, os, re, csv_module
+import typer, os, re, csv_module, rich_module
 
 app = typer.Typer()
 
@@ -47,10 +46,8 @@ def listFiles():
 def find_alias(alias: str):
     #function that shows the out put for command/user/host alias and export the output to an excel file.
     archivo = Finder(alias)
+    rich_module.print_Table(archivo,alias)
     csv_module.exporter_to_excel(alias, archivo)
-    print(f"Result of {alias} is: \t")
-    for arch in archivo:
-        print(arch)
-    print("Output exported to Excel file")
+  
 if __name__ == "__main__":
     app()

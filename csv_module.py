@@ -1,8 +1,6 @@
-import openpyxl
-
+import openpyxl, getpass
 
 def exporter_to_excel(nombre_alias,lista_valores):
-    #function that takes an alias name(str) and list of list) and creates an excel file based on the alias
     headers       = ['Alias','Defenition']
     workbook_name = nombre_alias+'.xlsx'
     wb = openpyxl.Workbook()
@@ -11,4 +9,5 @@ def exporter_to_excel(nombre_alias,lista_valores):
     ws.append(headers)
     for row in lista_valores:
         ws.append(row)
-    wb.save(filename=workbook_name)
+    print(f"Output exported to excel in User's home directory under the name {workbook_name}")
+    wb.save('/Users/'+getpass.getuser()+'/Documents/'+ workbook_name)

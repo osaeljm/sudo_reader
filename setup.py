@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
    name='parsrepo',
-   version='0.1',
+   version='0.1.2',
    description='Python script that parses and generate a report of sudoers file.',
    long_description=open("README.md").read(),
    long_description_content_type="text/mardown",
@@ -13,5 +13,5 @@ setup(
    author_email='osa092@gmail.com',
    license='Apache License',
    packages=['parsrepo'],  # would be the same as name
-   install_requires=['typer', 'os', 're'], #external packages acting as dependencies
+   install_requires=['typer', 'os', 're','openpyxl', 'getpass', 'rich'], #external packages acting as dependencies
 )
