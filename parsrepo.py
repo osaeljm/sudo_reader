@@ -48,6 +48,10 @@ def find_alias(alias: str):
     archivo = Finder(alias)
     rich_module.print_Table(archivo,alias)
     csv_module.exporter_to_excel(alias, archivo)
+
+@app.command()
+def find_single_rules():
+    pass
   
 if __name__ == "__main__":
     app()
