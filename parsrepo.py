@@ -35,7 +35,7 @@ def Finder(alias):
 
 @app.command()
 def listFiles():
-    #command that shows the file under a specific path
+    '''Command that shows the file under a /Users/osaeljm/Documents/Cosas'''
     lista = list_of_files()
     print("lista de archivos en /Users/osaeljm/Documents/Cosas")
     print(type(lista))
@@ -44,13 +44,14 @@ def listFiles():
 
 @app.command()
 def find_alias(alias: str):
-    #function that shows the out put for command/user/host alias and export the output to an excel file.
+    '''Command that shows the out put for command/user/host alias and export the out come to an excel file.'''
     archivo = Finder(alias)
     rich_module.print_Table(archivo,alias)
     csv_module.exporter_to_excel(alias, archivo)
 
 @app.command()
 def find_single_rules():
+    '''Command that show all single rules. '''
     pass
   
 if __name__ == "__main__":
