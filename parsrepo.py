@@ -17,9 +17,9 @@ def list_of_files():
 def Finder(alias):
     #funtions that retrieves aliases on list format
     aliases = []
-    if alias == 'User_Alias':
+    if alias == 'user':
         pattern = re.compile(r'(?<=User_Alias).*$')
-    elif alias == 'Host_Alias':
+    elif alias == 'host':
         pattern = re.compile(r'(?<=Host_Alias).*$')
     else:
         pattern = re.compile(r'(?<=Cmnd_Alias).*$')
@@ -44,10 +44,15 @@ def listFiles():
 
 @app.command()
 def find_alias(alias: str):
-    '''Command that shows the out put for command/user/host alias and export the out come to an excel file.'''
-    archivo = Finder(alias)
-    rich_module.print_Table(archivo,alias)
-    csv_module.exporter_to_excel(alias, archivo)
+    '''Command that shows the output for command/user/host alias and export the out come to an excel file.'''
+    values=['user','host','cmd']
+    if alias not in values:
+        print("Invalid value, please use: 'user' or 'host' or 'cmd'")
+    else:
+        archivo = Finder(alias)
+        rich_module.print_Table(archivo,alias)
+        csv_module.exporter_to_excel(alias, archivo)
+
 
 @app.command()
 def find_single_rules():
